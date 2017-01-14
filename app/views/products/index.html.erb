@@ -1,5 +1,35 @@
-<h1>Products</h1>
 
-<% @products.each do |product| %>
-   <%= product.name %>
-<% end %>
+<div class="container">
+   <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+         <h1>Products</h1>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Categorías</th>
+               </tr>
+            </thead>
+
+            <% @products.each do |product| %>
+               <tbody>
+                  <tr>      
+                     <td><%= product.name %></td>
+                     <td><%= product.price %></td>
+
+                     <% str = "" %>
+                     <% product.categories.each do |category| %>
+                        <% str << category.name + " " %>
+                     <% end %>
+
+                     <% arr = str.split %>
+                     <td><%= phrase(arr) %></td>
+                  </tr>
+               </tbody>
+            <% end %>
+         </table>
+      </div>
+   </div>
+</div>
+
