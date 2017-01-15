@@ -1,0 +1,28 @@
+
+<div class="container">
+   <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+         <h1 class="text-center">Nuevo producto</h1>
+
+            <%= form_for @product do |f| %>
+               <div class="form-group">
+                  <%= f.text_field :name, class:"form-control", placeholder:"Nombre del producto" %>
+               </div>
+
+               <div class="form-group">
+                  <%= f.text_field :price, class:"form-control", placeholder:"Precio del producto" %>
+               </div>
+
+               <% Category.all.each do |category| %>
+                  <div class="form-group">
+                     <%= f.check_box :name %> orlando
+                  </div>
+               <% end %>
+
+               <%= f.submit class:"form-control btn btn-info" %>
+             
+            <% end %>
+         
+      </div>
+   </div>
+</div>
