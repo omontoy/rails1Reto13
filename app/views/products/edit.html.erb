@@ -10,16 +10,19 @@
                </div>
 
                <div class="form-group">
-                  <%= f.text_field :price, class:"form-control", placeholder:"Precio del producto" %>
+                  <%= f.number_field :price, :step => 0.5, class:"form-control input-lg", placeholder:"Precio del producto" %>
                </div>
 
-               <% Category.all.each do |category| %>
-                  <div class="form-group">
-                     <%= f.check_box :name %> <%= category.name %>
-                  </div>
-               <% end %>
+               <div class="form-group">
+                  <%= collection_check_boxes(:product, :category_ids, Category.all, :id, :name) do |b| %>
+                    <div class="collection-check-box">
+                        <%= b.check_box %>
+                        <%= b.text %>      
+                     </div>
+                  <% end %>
+               </div>
 
-               <%= f.submit class:"form-control btn btn-info" %>
+               <%= f.submit class:"btn btn-info btn-lg btn-block" %>
              
             <% end %>
          
